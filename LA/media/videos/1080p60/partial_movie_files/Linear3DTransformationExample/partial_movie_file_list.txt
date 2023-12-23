@@ -1,0 +1,6 @@
+# This file is used internally by FFMPEG.
+file 'file:/home/mostlyk/Desktop/Projects/LA/Anileg/LA/media/videos/1080p60/partial_movie_files/Linear3DTransformationExample/2883636154_4090007480_3292242256.mp4'
+file 'file:/home/mostlyk/Desktop/Projects/LA/Anileg/LA/media/videos/1080p60/partial_movie_files/Linear3DTransformationExample/2113971483_4268215521_4077431622.mp4'
+file 'file:/home/mostlyk/Desktop/Projects/LA/Anileg/LA/media/videos/1080p60/partial_movie_files/Linear3DTransformationExample/3176913102_3313424998_2018513729.mp4'
+file 'file:/home/mostlyk/Desktop/Projects/LA/Anileg/LA/media/videos/1080p60/partial_movie_files/Linear3DTransformationExample/3620938739_700553711_2745345347.mp4'
+file 'file:/home/mostlyk/Desktop/Projects/LA/Anileg/LA/media/videos/1080p60/partial_movie_files/Linear3DTransformationExample/1309475562_1283098301_3638229050.mp4'
