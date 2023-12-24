@@ -1,17 +1,22 @@
 import pygame
 import pygame_gui
 import subprocess
+from pygame import mixer
 
-# Initialize Pygame and Pygame GUI
+
 pygame.init()
 pygame.display.set_caption('Anileg')
 screen = pygame.display.set_mode((1280, 1024))
 manager = pygame_gui.UIManager((1280, 1024))
 
-# Create a dictionary to store the buttons
+pygame.mixer.init()
+pygame.mixer.music.load('sound/pianomoment.mp3')
+pygame.mixer.music.play(-1)
+click_sound =  pygame.mixer.Sound('sound/click.mp3')
+# A dictionary to store the buttons
 buttons = {}
 
-# Create the buttons for the main menu
+# Main Menu
 buttons['LA'] = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((590, 200), (100, 50)),
                                              text='LA',
                                              manager=manager,
@@ -41,6 +46,7 @@ while running:
 
         if event.type == pygame.USEREVENT:
             if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
+                click_sound.play()
                 if event.ui_element == buttons['LA']:
                     subprocess.run(['python3', 'LA.py'])
                 elif event.ui_element == buttons['IC']:
