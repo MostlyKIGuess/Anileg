@@ -1,12 +1,16 @@
 import pygame
 import pygame_gui
 import subprocess
+from pygame import mixer
+
 # Initialize Pygame and Pygame GUI
+
 pygame.init()
 pygame.display.set_caption('LA')
 screen = pygame.display.set_mode((1280, 1024))
 manager = pygame_gui.UIManager((1280, 1024))
 
+click_sound =  pygame.mixer.Sound('sound/click.mp3')
 # Change the background color
 screen.fill((222, 166, 129))
 
@@ -43,6 +47,9 @@ while running:
         if event.type == pygame.QUIT:
             running = False
         if event.type == pygame_gui.UI_BUTTON_PRESSED:
+                click_sound.play()
+                if event.ui_element == buttons['Dot Product']:
+                    subprocess.run(['python3', 'LA/dot.py'])
                 if event.ui_element == buttons['2D Transformation']:
                     subprocess.run(['python3', 'LA/2Dtrans.py'])
         manager.process_events(event)

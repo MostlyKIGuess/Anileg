@@ -4,6 +4,7 @@ import subprocess
 from pygame import mixer
 
 
+
 pygame.init()
 pygame.display.set_caption('Anileg')
 screen = pygame.display.set_mode((1280, 1024))
