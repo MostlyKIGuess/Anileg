@@ -13,7 +13,8 @@ pygame.init()
 screen = pygame.display.set_mode((1920, 1080))
 
 # Define the input boxes
-input_box_positions = [(50, 50, 100, 50), (160, 50, 100, 50), (50, 110, 100, 50), (160, 110, 100, 50)]
+
+input_box_positions = [(50, 0, 200, 200), (200, 0, 200, 200), (50, 110, 200, 200), (200, 110, 200, 200)]
 input_boxes = [pygame.Rect(x, y, w, h) for x, y, w, h in input_box_positions]
 
 # Initialize the text in the input boxes
@@ -21,6 +22,18 @@ text = ['' for _ in input_boxes]
 
 # Define the font for the text
 font = pygame.font.Font(None, 32)
+
+image2d = pygame.image.load('images/2D.png')   
+
+# Get the size of the screen
+screen_width, screen_height = screen.get_size()
+
+    # Calculate the center position of the screen
+center_x = screen_width // 2
+center_y = screen_height // 2
+
+screen.fill((17, 17, 17))
+screen.blit(image2d, (150, center_y - 500))
 
 # Game loop
 clock = pygame.time.Clock()
@@ -89,7 +102,7 @@ while running:
     input_box_positions = [(center_x + x, center_y + y) for x, y in relative_input_box_positions]
 
     # Create the input boxes at the calculated positions
-    input_boxes = [pygame.Rect(x, y, 100, 20) for x, y in input_box_positions]
+    input_boxes = [pygame.Rect(x, y, 100, 100) for x, y in input_box_positions]
 
     # Draw the input boxes and the text
     for i, box in enumerate(input_boxes):
@@ -103,15 +116,9 @@ while running:
             line_surface = font.render(line, True, color)
             surface.blit(line_surface, (pos[0], pos[1] + 18*i))
 
-    # Get the size of the screen
-    screen_width, screen_height = screen.get_size()
-
-    # Calculate the center position of the screen
-    center_x = screen_width // 2
-    center_y = screen_height // 2
 
     # Define the relative positions of the labels
-    relative_label_positions = [(-60, -30), (180, -30), (-60, 30), (180, 30)]
+    relative_label_positions = [(-100, 100), (200, 100), (-100, 300), (200, 300)]
 
     # Calculate the actual positions of the labels
     label_positions = [(center_x + x, center_y + y) for x, y in relative_label_positions]
@@ -123,10 +130,15 @@ while running:
         label_surface = label_font.render(label, True, (255, 255, 255))
         screen.blit(label_surface, pos)
         
+     
+     
     info_text = """
     You see, it's common to package these four numbers which characterize a given transformation into a 2x2 grid of numbers \n, called a “2-by-2 matrix”, where you can interpret the columns as the two special vectors where î and ĵ land.
     """
-    render_multiline_text(screen, info_text, (10, 10), pygame.font.Font("fonts/Roboto-Regular.ttf", 22))
-
+    
+    
+    # render_multiline_text(screen, info_text, (10, 10), pygame.font.Font("fonts/Roboto-Regular.ttf", 22))
+    
+    
     # Update the display
     pygame.display.flip()
